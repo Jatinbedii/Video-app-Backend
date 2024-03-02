@@ -18,6 +18,7 @@ const videoSchema = new mongoose.Schema(
     },
     thumbnail: String,
     duration: Number,
+    tags: [String],
   },
   {
     timestamps: true,
