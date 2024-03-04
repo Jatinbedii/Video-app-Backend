@@ -20,6 +20,10 @@ const userSchema = new mongoose.Schema(
       default:
         "https://res.cloudinary.com/dur15pcjs/image/upload/v1708243579/jtlgvcdd28gzobvehbqt.jpg",
     },
+    isLive: {
+      default: false,
+      type: Boolean,
+    },
   },
   { timestamps: true }
 );
