@@ -55,6 +55,13 @@ io.on("connection", (socket) => {
   socket.on("joinRoomToWatchStream", ({ room }) => {
     socket.join(room);
   });
+
+  socket.on("sendchat", ({ room, user, message }) => {
+    console.log({ room, user, message });
+    io.to(socketIdToUserIdMap).emit("audience", { user, message });
+    io.emit("MESSAGE", { room, user, message });
+  });
+
   socket.on("disconnect", () => {
     const user = socketIdToUserIdMap[socket.id];
     delete socketIdToUserIdMap[socket.id];
