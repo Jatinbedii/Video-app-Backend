@@ -57,8 +57,8 @@ io.on("connection", (socket) => {
   });
 
   socket.on("sendchat", ({ room, user, message }) => {
-    console.log({ room, user, message });
-    io.to(socketIdToUserIdMap).emit("audience", { user, message });
+   
+   
     io.emit("MESSAGE", { room, user, message });
   });
 
